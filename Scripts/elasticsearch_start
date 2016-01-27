@@ -1,0 +1,1 @@
+elasticsearch --config=/usr/local/opt/elasticsearch17/config/elasticsearch.yml -d

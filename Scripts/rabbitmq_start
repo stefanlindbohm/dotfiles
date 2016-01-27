@@ -1,0 +1,1 @@
+PATH=/usr/local/sbin:/usr/bin:/bin:/usr/local/bin CONF_ENV_FILE=/usr/local/etc/rabbitmq/rabbitmq-env.conf /usr/local/sbin/rabbitmq-server

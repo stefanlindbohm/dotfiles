@@ -94,6 +94,14 @@ precmd() {
   vcs_info
 }
 
+reset-prompt-accept-line() {
+  zle reset-prompt
+  zle accept-line
+}
+
+zle -N reset-prompt-accept-line
+bindkey "^M" reset-prompt-accept-line
+
 # Show mode information by the last character in the prompt
 function prompt_end_character {
   zle_mode_output "$" "%F{196}>%f"

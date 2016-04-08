@@ -4,6 +4,7 @@ require 'fileutils'
 SYMLINKS = %w[
   vimrc
   zshrc
+  tmux.conf
 ]
 
 SYMLINKS.each do |file|

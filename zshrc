@@ -144,6 +144,10 @@ function {
 # }}}
 
 export PATH="~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH:~/Scripts:~/Code/hemnet-terminal-command/bin"
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+alias vim=nvim
 alias git=hub
 alias github='hub browse'
 alias b='bundle exec'

@@ -2,7 +2,6 @@ require File.expand_path('../support/dotfile', __FILE__)
 require 'fileutils'
 
 SYMLINKS = %w[
-  vimrc
   zshrc
   tmux.conf
 ]
@@ -59,11 +58,22 @@ end
 
 desc "Install stuff from brew"
 task :homebrew do
-  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux')
+  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim')
+end
+
+desc "Install vim config"
+task :vim_config do
+  nvim = Dotfile.new("nvim")
+  nvim.home_path = Pathname.new("~/.config/nvim")
+  nvim.install_symlink
+  vimrc = Dotfile.new("vimrc", "~/.config/nvim/init.vim")
+  vimrc.install_symlink
+  vim = Dotfile.new("vim", "~/.config/nvim")
+  vim.install_symlink
 end
 
 desc "Install all files"
-task :install => (SYMLINKS + %w[gitconfig gitignore scripts homebrew]) do
+task :install => (SYMLINKS + %w[gitconfig gitignore scripts homebrew vim_config]) do
   if ENV['SHELL'] !~ /zsh/
     STDERR.puts "Warning: You seem to be using a shell different from zsh (#{ENV['SHELL']})"
     STDERR.puts "Fix this by running:"

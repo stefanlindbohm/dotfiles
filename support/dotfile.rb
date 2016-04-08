@@ -6,7 +6,7 @@ class Dotfile
 
   def initialize(name, source = name)
     @name = name
-    @source = source
+    @source = source.start_with?("~", "/") ? source : "../../#{source}"
   end
 
   def install_symlink
@@ -25,7 +25,7 @@ class Dotfile
   end
 
   def source_path
-    @source_path ||= Pathname.new(File.expand_path("../../#{source}", __FILE__))
+    @source_path ||= Pathname.new(File.expand_path(source, __FILE__))
   end
 
   def home_path

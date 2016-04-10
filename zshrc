@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -6,11 +5,36 @@ SAVEHIST=1000
 # {{{ Highlighting
 if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+  typeset -A ZSH_HIGHLIGHT_STYLES
+  ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bold'
+  ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta'
+  ZSH_HIGHLIGHT_STYLES[alias]='underline'
+  ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,underline'
+  ZSH_HIGHLIGHT_STYLES[builtin]='none'
+  ZSH_HIGHLIGHT_STYLES[function]='none'
+  ZSH_HIGHLIGHT_STYLES[command]='none'
+  ZSH_HIGHLIGHT_STYLES[precommand]='fg=green,underline'
+  ZSH_HIGHLIGHT_STYLES[commandseparator]='none'
+  ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=green'
+  ZSH_HIGHLIGHT_STYLES[path]='underline'
+  ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=yellow,underline'
+  ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue'
+  ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=blue'
+  ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='none'
+  ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='none'
+  ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='none'
+  ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
+  ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
+  ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=yellow'
+  ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=cyan'
+  ZSH_HIGHLIGHT_STYLES[assign]='none'
+  ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
+  ZSH_HIGHLIGHT_STYLES[comment]='fg=white'
+  ZSH_HIGHLIGHT_STYLES[default]='none'
 fi
-
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='none'
-
 # }}}
 # {{{ ZLE
 bindkey -v
@@ -86,42 +110,32 @@ setopt transient_rprompt
 function {
   autoload -Uz vcs_info
   zstyle ':vcs_info:*' enable git
-
   zstyle ':vcs_info:*' check-for-changes true
 
-  local branch_format="%F{202}%r%f:%F{214}%b%f"
-  local changes_format="%F{022}%c%F{088}%u"
-  zstyle ':vcs_info:*' formats       "${changes_format} ${branch_format}%f" ""
-  zstyle ':vcs_info:*' actionformats "${changes_format} ${branch_format}%f [%F{cyan}%a%f]" ""
+  zstyle ':vcs_info:*' stagedstr "%F{green}S"
+  zstyle ':vcs_info:*' unstagedstr "%F{red}U"
+
+  local branch_format="%F{yellow}%b"
+  zstyle ':vcs_info:*' formats       "%c%u ${branch_format}%f" ""
+  zstyle ':vcs_info:*' actionformats "%c%u ${branch_format}%f (%F{cyan}%a%f)" ""
 }
 
 precmd() {
   vcs_info
 }
 
-reset-prompt-accept-line() {
-  zle reset-prompt
-  zle accept-line
-}
-
-zle -N reset-prompt-accept-line
-bindkey "^M" reset-prompt-accept-line
-
 # Show mode information by the last character in the prompt
 function prompt_end_character {
-  zle_mode_output "$" "%F{196}>%f"
+  zle_mode_output "$" "%F{red}>%f"
 }
 
 function {
-  if is256color; then
-    local current_time="%F{247}%D{%H:%M}%F{240}%D{:%S}"
-  else
-    local current_time="%F{white}%D{%H:%M}%B%F{black}%D{:%S}%b"
-  fi
+  # Color user differently if we have a privileged user ("!")
+  local user="%(!.%F{red}.%F{green})%n"
 
   if [[ -n $SSH_CLIENT ]]; then
     if is256color; then
-      local host='%F{241}@%F{60}%4m'
+      local host='%F{white}@%F{242}%4m'
     else
       local host='%f@%F{blue}%4m'
     fi
@@ -129,11 +143,14 @@ function {
     local host=''
   fi
 
-  # Color user differently if we have a privileged user ("!")
-  local user="%(!.%F{196}.%F{072})%n"
+  if is256color; then
+    local current_time="%F{white}%D{%H:%M}%F{242}%D{:%S}"
+  else
+    local current_time="%F{white}%D{%H:%M}"
+  fi
 
-  local dir="%B%F{blue}%4~%b"
   local last_status="%(?.. %F{red}*%?)"
+  local dir="%B%F{blue}%4~%b"
   local current_jobs="%(1j.%F{magenta}%BJ%j%b .)"
   local end='$(prompt_end_character)%f%k%b'
 
@@ -143,7 +160,7 @@ function {
 
 # }}}
 
-export PATH="~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH:~/Scripts:~/Code/hemnet-terminal-command/bin"
+export PATH="~/.rbenv/bin:$HOME/Scripts:$HOME/Code/hemnet-terminal-command/bin:$PATH"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export VISUAL=nvim
 export EDITOR="$VISUAL"

@@ -14,6 +14,11 @@ set splitbelow
 set list
 set listchars=tab:→\ ,eol:¬,nbsp:•,space:.
 
+" Indentation
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
 " Disable mouse to make copying easier
 if has('mouse')
   set mouse=

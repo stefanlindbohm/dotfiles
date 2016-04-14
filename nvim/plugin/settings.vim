@@ -10,6 +10,10 @@ set showcmd
 set splitright
 set splitbelow
 
+" Highlight invisible characters
+set list
+set listchars=tab:→\ ,eol:¬,nbsp:•,space:.
+
 " Disable mouse to make copying easier
 if has('mouse')
   set mouse=

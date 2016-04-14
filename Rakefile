@@ -72,8 +72,24 @@ task :vim_config do
   vim.install_symlink
 end
 
+desc "Install vim-plug"
+task :vim_plug do
+  unless File.exist?('nvim/autoload/plug.vim')
+    unless system('curl -fLo nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+      STDERR.puts "Could not fetch vim-plug. Continuing..."
+    end
+  end
+end
+
+desc "Install vim plugins"
+task :vim_plugins => :vim_plug do
+  unless system('vim -c ":PlugInstall" -c ":qa"')
+    STDERR.puts "Could not automatically install vim bundles. Continuing..."
+  end
+end
+
 desc "Install all files"
-task :install => (SYMLINKS + %w[gitconfig gitignore scripts homebrew vim_config]) do
+task :install => (SYMLINKS + %w[gitconfig gitignore scripts homebrew vim_config vim_plugins]) do
   if ENV['SHELL'] !~ /zsh/
     STDERR.puts "Warning: You seem to be using a shell different from zsh (#{ENV['SHELL']})"
     STDERR.puts "Fix this by running:"

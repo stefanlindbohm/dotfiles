@@ -41,3 +41,5 @@ autocmd BufReadPost *
 \   exe "normal! g`\"" |
 \ endif
 augroup END
+
+let g:ctrlp_custom_ignore = '\v(node_modules|tmp)/'

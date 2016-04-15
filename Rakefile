@@ -35,7 +35,7 @@ task :gitconfig do
   config["diff.tool", "Kaleidoscope"]
 
   # Aliases
-  config["alias.up", %(pull --rebase --prune)]
+  config["alias.up", %(pull --ff-only --prune)]
   config["alias.undo", %(reset HEAD~1)]
   config["alias.wipe", %(!git reset HEAD --hard && git clean -f)]
   config["alias.clog", %(log --pretty=format:'%C(yellow)%h%Creset  %ci %Cred%d%Creset %s (%aN)' --date=local)]

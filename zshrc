@@ -169,6 +169,7 @@ alias git=hub
 alias github='hub browse'
 alias b='bundle exec'
 alias ls='ls -G'
+alias ag='ag -U'
 alias space='echo "\n\n\n\n\n\n\n\n\n\n"'
 eval "$(rbenv init - zsh)"
 

@@ -42,4 +42,28 @@ autocmd BufReadPost *
 \ endif
 augroup END
 
-let g:ctrlp_custom_ignore = '\v(node_modules|tmp)/'
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor\ -U
+
+  " Use ag in CtrlP for listing files
+  let g:ctrlp_user_command = 'ag %s -U -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
+
+let mapleader='\'
+
+" Grep and automatically open quickfix window ("window grep")
+command -nargs=+ -complete=file -bar Wgrep silent grep! <args>|cwindow|redraw!
+command -nargs=+ -complete=file -bar Wgrepadd silent grepadd! <args>|cwindow|redraw!
+cnoreabbrev Wgr Wgrep
+cnoreabbrev Wgra Wgrepadd
+
+" Mappings
+nnoremap <leader>ss :Wgrep<SPACE>
+nnoremap <leader>Ss :Wgrepadd<SPACE>
+nnoremap <leader>sw :Wgrep <C-r><C-w><CR>
+nnoremap <leader>sW :Wgrep -i <C-r><C-w><CR>
+nnoremap <leader>Sw :Wgrepadd <C-r><C-w><CR>
+nnoremap <leader>SW :Wgrepadd -i <C-r><C-w><CR>

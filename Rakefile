@@ -4,6 +4,7 @@ require 'fileutils'
 SYMLINKS = %w[
   zshrc
   tmux.conf
+  agignore
 ]
 
 SYMLINKS.each do |file|
@@ -58,7 +59,7 @@ end
 
 desc "Install stuff from brew"
 task :homebrew do
-  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim')
+  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim the_silver_searcher')
 end
 
 desc "Install vim config"
@@ -98,4 +99,3 @@ task :install => (SYMLINKS + %w[gitconfig gitignore scripts homebrew vim_config 
 end
 
 task default: :install
-

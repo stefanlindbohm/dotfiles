@@ -52,11 +52,15 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" Signify
+let g:signify_vcs_list = [ 'git' ]
+let g:signify_sign_change = '~'
+
 let mapleader='\'
 
 " Grep and automatically open quickfix window ("window grep")
-command -nargs=+ -complete=file -bar Wgrep silent grep! <args>|cwindow|redraw!
-command -nargs=+ -complete=file -bar Wgrepadd silent grepadd! <args>|cwindow|redraw!
+command -nargs=+ -complete=file -bar Wgrep silent grep! <args>|cwindow
+command -nargs=+ -complete=file -bar Wgrepadd silent grepadd! <args>|cwindow
 cnoreabbrev Wgr Wgrep
 cnoreabbrev Wgra Wgrepadd
 
@@ -67,3 +71,4 @@ nnoremap <leader>sw :Wgrep <C-r><C-w><CR>
 nnoremap <leader>sW :Wgrep -i <C-r><C-w><CR>
 nnoremap <leader>Sw :Wgrepadd <C-r><C-w><CR>
 nnoremap <leader>SW :Wgrepadd -i <C-r><C-w><CR>
+nnoremap <C-S-p> :CtrlPTag<CR>

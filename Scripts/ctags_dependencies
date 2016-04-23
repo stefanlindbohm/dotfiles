@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+if [ -f Gemfile ] && command -v bundle >/dev/null; then
+  trap "rm -f .tags_dependencies.$$" EXIT
+  ctags --tag-relative -R -f .tags_dependencies.$$ $(bundle list --paths)
+  mv .tags_dependencies.$$ .tags_dependencies
+fi

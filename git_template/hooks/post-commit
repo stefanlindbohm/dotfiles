@@ -1,0 +1,3 @@
+#!/bin/sh
+
+.git/hooks/update_dependencies_and_tags

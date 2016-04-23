@@ -1,0 +1,14 @@
+#!/bin/sh
+
+~/Scripts/ctags_project >/dev/null 2>&1 &
+
+if [ -f Gemfile ] && command -v bundle >/dev/null && ! bundle check >/dev/null
+then
+  # $GIT_DIR can cause chaos if Bundler in turn invokes Git.
+  # Unset it in a subshell so it remains set later in the hook.
+  (unset GIT_DIR; exec bundle)
+
+  ~/Scripts/ctags_dependencies >/dev/null 2>&1 &
+
+  true
+fi

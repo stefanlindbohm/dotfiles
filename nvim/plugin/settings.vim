@@ -19,6 +19,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+" Tags
+set tags=.tags,.tags_dependencies
+
 " Disable mouse to make copying easier
 if has('mouse')
   set mouse=
@@ -71,4 +74,4 @@ nnoremap <leader>sw :Wgrep <C-r><C-w><CR>
 nnoremap <leader>sW :Wgrep -i <C-r><C-w><CR>
 nnoremap <leader>Sw :Wgrepadd <C-r><C-w><CR>
 nnoremap <leader>SW :Wgrepadd -i <C-r><C-w><CR>
-nnoremap <C-S-p> :CtrlPTag<CR>
+nnoremap <C-M-p> :CtrlPTag<CR>

@@ -5,6 +5,7 @@ SYMLINKS = %w[
   zshrc
   tmux.conf
   agignore
+  git_template
 ]
 
 SYMLINKS.each do |file|
@@ -21,6 +22,8 @@ task :gitconfig do
 
   config["push.default", "tracking"]
   config["color.ui", "true"]
+
+  config["init.templatedir", "~/.git_template"]
 
   config["user.name", "Stefan Lindbohm"]
   config["user.email", "stefan@kolizz.com"]
@@ -59,7 +62,7 @@ end
 
 desc "Install stuff from brew"
 task :homebrew do
-  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim the_silver_searcher')
+  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim the_silver_searcher ctags')
 end
 
 desc "Install vim config"

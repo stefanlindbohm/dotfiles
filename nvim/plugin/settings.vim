@@ -48,7 +48,7 @@ augroup END
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ -U
+  set grepprg=ag\ --nogroup\ --nocolor\ -U\ --ignore=log/\ --ignore=tmp/
 
   " Use ag in CtrlP for listing files
   let g:ctrlp_user_command = 'ag %s -U -l --nocolor -g ""'
@@ -62,8 +62,8 @@ let g:signify_sign_change = '~'
 let mapleader='\'
 
 " Grep and automatically open quickfix window ("window grep")
-command -nargs=+ -complete=file -bar Wgrep silent grep! <args>|cwindow
-command -nargs=+ -complete=file -bar Wgrepadd silent grepadd! <args>|cwindow
+command! -nargs=+ -complete=file -bar Wgrep silent grep! <args>|cwindow
+command! -nargs=+ -complete=file -bar Wgrepadd silent grepadd! <args>|cwindow
 cnoreabbrev Wgr Wgrep
 cnoreabbrev Wgra Wgrepadd
 

@@ -6,6 +6,9 @@ set ruler
 set number
 set showcmd
 
+" netrw
+let g:netrw_liststyle=3
+
 " Split settings
 set splitright
 set splitbelow

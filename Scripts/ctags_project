@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 trap "rm -f .tags.$$" EXIT
-ctags --tag-relative -R --exclude=.git --exclude=tmp --exclude=log -f .tags.$$ .
+ctags --tag-relative -R --exclude=.git --exclude=tmp --exclude=log --exclude=node_modules -f .tags.$$ .
 mv .tags.$$ .tags

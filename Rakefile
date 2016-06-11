@@ -53,6 +53,11 @@ task :gitignore do
   end
 end
 
+desc "Create the .config directory"
+task :config_dir do
+  FileUtils.mkdir_p(File.expand_path("~/.config"))
+end
+
 desc "Symlink the Scripts directory"
 task :scripts do
   scripts = Dotfile.new("Scripts")
@@ -66,7 +71,7 @@ task :homebrew do
 end
 
 desc "Install vim config"
-task :vim_config do
+task :vim_config => :config_dir do
   nvim = Dotfile.new("nvim")
   nvim.home_path = Pathname.new("~/.config/nvim")
   nvim.install_symlink
@@ -87,7 +92,7 @@ end
 
 desc "Install vim plugins"
 task :vim_plugins => :vim_plug do
-  unless system('vim -c ":PlugInstall" -c ":qa"')
+  unless system('nvim -c ":PlugInstall" -c ":qa"')
     STDERR.puts "Could not automatically install vim bundles. Continuing..."
   end
 end

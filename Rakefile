@@ -67,7 +67,7 @@ end
 
 desc "Install stuff from brew"
 task :homebrew do
-  system('brew install elasticsearch nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim the_silver_searcher ctags')
+  system('brew install nginx postgresql rbenv ruby-build git hub zsh zsh-syntax-highlighting vim tmux neovim/neovim/neovim the_silver_searcher ctags')
 end
 
 desc "Install vim config"

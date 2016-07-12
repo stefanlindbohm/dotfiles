@@ -1,1 +1,1 @@
-../../dracula-theme/vim/colors/dracula.vim
+../dracula/colors/dracula.vim

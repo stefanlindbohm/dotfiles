@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'dracula/vim'
+
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 Plug 'tpope/vim-fugitive' " git integration
 Plug 'mhinz/vim-signify' " git info in the gutter

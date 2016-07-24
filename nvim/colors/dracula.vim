@@ -1,1 +1,0 @@
-../dracula/colors/dracula.vim

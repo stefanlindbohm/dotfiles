@@ -8,6 +8,7 @@ Plug 'mhinz/vim-signify' " git info in the gutter
 Plug 'JSON.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'ap/vim-css-color' " Color highlighting for relevant filetypes
+Plug 'othree/yajs.vim'
 
 " Frameworks & tools
 Plug 'tpope/vim-rails'

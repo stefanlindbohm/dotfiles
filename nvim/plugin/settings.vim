@@ -35,6 +35,12 @@ syntax on
 color dracula
 set hlsearch
 
+" Syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✖"
+let g:syntastic_warning_symbol = "!"
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
 " (happens when dropping a file on gvim).

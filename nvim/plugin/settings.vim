@@ -57,10 +57,10 @@ augroup END
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ -U\ --ignore=log/\ --ignore=tmp/
+  set grepprg=ag\ --nogroup\ --nocolor\ --hidden\ --ignore=.git\ --ignore=log/\ --ignore=tmp/
 
   " Use ag in CtrlP for listing files
-  let g:ctrlp_user_command = 'ag %s -U -l --nocolor -g ""'
+  let g:ctrlp_user_command = 'ag %s --hidden --ignore=.git --nocolor -l -g ""'
   let g:ctrlp_use_caching = 0
 endif
 

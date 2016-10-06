@@ -32,6 +32,7 @@ endif
 
 " Colors & highlighting
 syntax on
+set termguicolors
 color dracula
 set hlsearch
 

@@ -164,17 +164,6 @@ function {
 
 # }}}
 
-export PATH="~/.rbenv/bin:$HOME/Scripts:$HOME/Code/hemnet-terminal-command/bin:$PATH"
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-alias vim=nvim
-alias git=hub
-alias github='hub browse'
-alias b='bundle exec'
-alias ls='ls -G'
-alias ag='ag -U'
-alias space='echo "\n\n\n\n\n\n\n\n\n\n"'
+# These should be in .zshenv, but some initialization required for rbenv happens after that
 eval "$(rbenv init - zsh)"
-
-# The absence of this has been known to confuse Capistrano on other machines
-export LC_ALL="en_US.UTF-8"
+export PATH=".git/safe/../../bin:$HOME/Scripts:$PATH"

@@ -3,6 +3,7 @@ require 'fileutils'
 
 SYMLINKS = %w[
   zshrc
+  zshenv
   tmux.conf
   agignore
   git_template

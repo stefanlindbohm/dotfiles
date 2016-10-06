@@ -55,6 +55,10 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 # }}}
 # {{{ Color shortcuts and magic
 autoload colors

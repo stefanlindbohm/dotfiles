@@ -21,6 +21,7 @@ set listchars=tab:→\ ,eol:¬,nbsp:•,space:.
 set expandtab
 set tabstop=2
 set shiftwidth=2
+set colorcolumn=+1
 
 " Tags
 set tags=.tags,.tags_dependencies

@@ -5,6 +5,7 @@ set history=50
 set ruler
 set number
 set showcmd
+set relativenumber
 
 " netrw
 let g:netrw_liststyle=3
@@ -33,9 +34,11 @@ endif
 
 " Colors & highlighting
 syntax on
-set termguicolors
 color dracula
 set hlsearch
+if has('termguicolors')
+  set termguicolors
+endif
 
 " Syntastic
 let g:syntastic_check_on_open = 1
@@ -86,3 +89,9 @@ nnoremap <leader>sW :Wgrep -i <C-r><C-w><CR>
 nnoremap <leader>Sw :Wgrepadd <C-r><C-w><CR>
 nnoremap <leader>SW :Wgrepadd -i <C-r><C-w><CR>
 nnoremap <C-M-p> :CtrlPTag<CR>
+
+" CTRL-<navigation> to move windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l

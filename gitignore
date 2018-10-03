@@ -6,3 +6,4 @@
 .tags
 .tags_dependencies
 .rspec
+.tmux.conf

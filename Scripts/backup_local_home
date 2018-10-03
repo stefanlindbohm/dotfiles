@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+folders=("/Users/kolizz/Pictures" "/Users/kolizz/Movies")
+destination="/Volumes/home/Backups/$(hostname -s) home"
+
+for folder in $folders; do
+  rsync -va --delete "$folder" "$destination"
+done

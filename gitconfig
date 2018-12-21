@@ -17,8 +17,8 @@
 	up = pull --ff-only --prune
 	wipe = !git reset HEAD --hard && git clean -f
 	clog = log --pretty=format:'%C(yellow)%h%Creset  %ci %Cred%d%Creset %s (%aN)' --date=local
-  llog = !git clog origin/HEAD..HEAD
-	undo = reset HEAD~1
+  llog = !git clog `git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`..head
+  undo = reset HEAD~1
 [core]
 	excludesfile = /Users/kolizz/.gitignore
 [mergetool "Kaleidoscope"]

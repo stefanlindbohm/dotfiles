@@ -7,6 +7,7 @@ SYMLINKS = %w[
   tmux.conf
   agignore
   git_template
+  gitconfig
 ]
 
 SYMLINKS.each do |file|

@@ -1,7 +1,6 @@
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 alias vim=nvim
-alias git=hub
 alias github='hub browse'
 alias b='bundle exec'
 alias ls='ls -G'

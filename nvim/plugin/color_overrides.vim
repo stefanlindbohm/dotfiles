@@ -20,7 +20,5 @@ autocmd ColorScheme * hi SignifySignChange cterm=bold ctermfg=11 ctermbg=236 gui
 autocmd ColorScheme * hi SignifySignDelete cterm=bold ctermfg=9 ctermbg=236 gui=bold guifg=#ff6e67 guibg=#3d3f49
 
 " Syntastic
-autocmd ColorScheme * hi clear SyntasticWarning
-autocmd ColorScheme * hi SyntasticWarning ctermbg=11 ctermfg=black gui=undercurl guisp=#f1fa8c
-autocmd ColorScheme * hi SyntasticWarningSign cterm=bold ctermfg=11 ctermbg=236 guifg=#f1fa8c guibg=#3d3f49
-autocmd ColorScheme * hi SyntasticErrorSign cterm=bold ctermfg=9 ctermbg=236 gui=bold guifg=#ff6e67 guibg=#3d3f49
+autocmd ColorScheme * hi SyntasticWarningSign cterm=bold ctermfg=11 ctermbg=236 guifg=#3d3f49 guibg=#f1fa8c
+autocmd ColorScheme * hi SyntasticErrorSign  cterm=bold ctermfg=9 ctermbg=236 gui=bold guifg=#3d3f49 guibg=#ff6e67

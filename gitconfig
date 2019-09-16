@@ -1,25 +1,33 @@
-[push]
-	default = tracking
-[color]
-	ui = true
 [init]
 	templatedir = ~/.git_template
 [core]
 	excludesfile = ~/.gitignore
+[commit]
+	gpgsign = true
+[push]
+	default = tracking
 [user]
 	name = Stefan Lindbohm
 	email = stefan@kolizz.com
 	signingkey = 55572B41
-[commit]
-	gpgsign = true
 [alias]
 	up = pull --ff-only --prune
 	wipe = !git reset HEAD --hard && git clean -f
 	llog = !git log `git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`..
 	blog = log master..
+[color]
+	ui = true
 [pretty]
 	compact = %C(auto)%h %cd %d %s (%aN)%Creset
 [format]
 	pretty = compact
 [log]
 	date = short
+[difftool "nvimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "nvimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[diff]
+  tool = nvimdiff
+[merge]
+  tool = nvimdiff

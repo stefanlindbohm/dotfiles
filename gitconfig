@@ -8,7 +8,7 @@
 	default = tracking
 [user]
 	name = Stefan Lindbohm
-	email = stefan@kolizz.com
+	email = stefan@lindbohm.se
 	signingkey = 55572B41
 [alias]
 	up = pull --ff-only --prune

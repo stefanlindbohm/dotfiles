@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-folders=("/Users/kolizz/Pictures" "/Users/kolizz/Movies")
+folders=("/Users/stefan/Pictures" "/Users/stefan/Movies")
 destination="/Volumes/home/Backups/$(hostname -s) home"
 
 for folder in $folders; do

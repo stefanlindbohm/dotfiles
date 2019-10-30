@@ -40,6 +40,9 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0

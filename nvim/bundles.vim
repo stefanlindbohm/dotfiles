@@ -16,7 +16,6 @@ Plug 'tpope/vim-surround' " surrounding
 " Languages
 Plug 'elzr/vim-json'
 Plug 'vim-ruby/vim-ruby'
-Plug 'joker1007/vim-ruby-heredoc-syntax'
 Plug 'ap/vim-css-color' " Color highlighting for relevant filetypes
 Plug 'pangloss/vim-javascript'
 Plug 'keith/swift.vim'
@@ -24,6 +23,5 @@ Plug 'keith/swift.vim'
 " Frameworks & tools
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
-
 
 call plug#end()

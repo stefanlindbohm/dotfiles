@@ -88,8 +88,8 @@ namedir () {
 }
 
 # Give all projects a name
-if [ -d ~/Code ]; then
-  for dir in ~/Code/*(/N); do
+if [ -d ~/Projects ]; then
+  for dir in ~/Projects/*(/N); do
     namedir "$(basename $dir)" "$dir"
   done
 fi

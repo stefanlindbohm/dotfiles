@@ -94,6 +94,7 @@ nnoremap <leader>sW :Wgrep -i <C-r><C-w><CR>
 nnoremap <leader>Sw :Wgrepadd <C-r><C-w><CR>
 nnoremap <leader>SW :Wgrepadd -i <C-r><C-w><CR>
 nnoremap <C-M-p> :CtrlPTag<CR>
+nnoremap <leader>c :let @/ = ""<CR>
 
 " CTRL-<navigation> to move windows
 map <C-h> <C-w>h

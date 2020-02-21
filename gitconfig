@@ -13,16 +13,15 @@
 [alias]
 	up = pull --ff-only --prune
 	wipe = !git reset HEAD --hard && git clean -f
-	llog = !git log `git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`..
-	blog = log master..
+	lg = log --pretty=compact
+	llog = !git lg `git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`..
+	blog = lg master..
 [color]
 	ui = true
 [pretty]
-	compact = %C(auto)%h %cd %d %s (%aN)%Creset
-[format]
-	pretty = compact
+	compact = %C(auto)%h %ci %s (%C(red)%aN%Creset)
 [log]
-	date = short
+	date = format:%a %Y-%m-%d %H:%M:%S %z
 [difftool "nvimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [mergetool "nvimdiff"]

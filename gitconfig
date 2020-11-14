@@ -1,5 +1,5 @@
-[init]
-	templatedir = ~/.git_template
+#[init]
+#	templatedir = ~/.git_template
 [core]
 	excludesfile = ~/.gitignore
 [commit]

@@ -164,6 +164,4 @@ function {
 
 # }}}
 
-# These should be in .zshenv, but some initialization required for rbenv happens after that
 eval "$(rbenv init - zsh)"
-export PATH=".git/safe/../../bin:$HOME/Scripts:$PATH"

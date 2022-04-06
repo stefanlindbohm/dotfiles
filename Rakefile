@@ -32,7 +32,7 @@ end
 
 desc "Install stuff from brew"
 task :homebrew do
-  system('brew install rbenv ruby-build git zsh zsh-syntax-highlighting tmux neovim/neovim/neovim the_silver_searcher ctags nmap node yarn')
+  system('brew install rbenv ruby-build git zsh zsh-syntax-highlighting tmux neovim the_silver_searcher ctags nmap node yarn')
 end
 
 desc "Install vim config"

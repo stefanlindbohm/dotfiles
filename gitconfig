@@ -15,7 +15,7 @@
 	wipe = !git reset HEAD --hard && git clean -f
 	lg = log --pretty=compact
 	llog = !git lg `git rev-parse --abbrev-ref --symbolic-full-name @{upstream}`..
-	blog = lg master..
+	blog = lg main..
 [color]
 	ui = true
 [pretty]

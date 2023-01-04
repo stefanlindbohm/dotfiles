@@ -30,3 +30,5 @@
   tool = nvimdiff
 [merge]
   tool = nvimdiff
+[init]
+	defaultBranch = main

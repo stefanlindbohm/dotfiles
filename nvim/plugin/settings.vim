@@ -43,13 +43,14 @@ endif
 " vim-json
 let g:vim_json_syntax_conceal = 0
 
-" Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_error_symbol = "!"
-let g:syntastic_warning_symbol = "!"
-let g:syntastic_style_error_symbol = "!"
-let g:syntastic_style_warning_symbol = "!"
+" ALE
+let g:ale_set_loclist = 0
+let g:ale_lint_delay = 1000
+let g:ale_completion_enabled = 1
+let g:ale_virtualtext_prefix = '[%linter%]% code%: '
+let g:ale_echo_msg_format = '[%linter%]% code%: %s'
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '!'
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -94,6 +95,7 @@ nnoremap <leader>sW :Wgrep -i <C-r><C-w><CR>
 nnoremap <leader>Sw :Wgrepadd <C-r><C-w><CR>
 nnoremap <leader>SW :Wgrepadd -i <C-r><C-w><CR>
 nnoremap <C-M-p> :CtrlPTag<CR>
+nnoremap <leader>d :ALEGoToDefinition<CR>
 nnoremap <leader>c :let @/ = ""<CR>
 
 " CTRL-<navigation> to move windows

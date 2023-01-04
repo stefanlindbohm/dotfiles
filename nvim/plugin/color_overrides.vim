@@ -19,6 +19,10 @@ autocmd ColorScheme * hi SignifySignAdd cterm=bold ctermfg=64 ctermbg=236 gui=bo
 autocmd ColorScheme * hi SignifySignChange cterm=bold ctermfg=11 ctermbg=236 guifg=#f1fa8c guibg=#3d3f49
 autocmd ColorScheme * hi SignifySignDelete cterm=bold ctermfg=9 ctermbg=236 gui=bold guifg=#ff6e67 guibg=#3d3f49
 
-" Syntastic
-autocmd ColorScheme * hi SyntasticWarningSign cterm=bold ctermfg=11 ctermbg=236 guifg=#3d3f49 guibg=#f1fa8c
-autocmd ColorScheme * hi SyntasticErrorSign  cterm=bold ctermfg=9 ctermbg=236 gui=bold guifg=#3d3f49 guibg=#ff6e67
+" ALE
+autocmd VimEnter * hi ALEVirtualTextError guifg=#6272A4 ctermbg=236 guibg=#21222C
+autocmd VimEnter * hi ALEVirtualTextWarning guifg=#6272A4  ctermbg=236 guibg=#21222C
+autocmd VimEnter * hi ALEWarningSign cterm=bold ctermfg=11 ctermbg=236 guifg=#3d3f49 guibg=#f1fa8c
+autocmd VimEnter * hi ALEErrorSign cterm=bold ctermfg=9 ctermbg=236 gui=bold guifg=#3d3f49 guibg=#ff6e67
+autocmd VimEnter * hi ALEWarning cterm=underline gui=undercurl guisp=#f1fa8c
+autocmd VimEnter * hi ALEError cterm=underline gui=undercurl guisp=#ff6e67

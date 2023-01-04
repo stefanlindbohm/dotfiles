@@ -1,11 +1,11 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'ctrlpvim/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 Plug 'tpope/vim-fugitive' " git integration
 Plug 'mhinz/vim-signify' " git info in the gutter
-Plug 'vim-syntastic/syntastic' " syntax checking
+Plug 'dense-analysis/ale' " syntax checking
 Plug 'tpope/vim-commentary' " comment stuff in & out
 Plug 'tpope/vim-repeat' " repeat for plugins
 

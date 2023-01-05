@@ -45,8 +45,9 @@ let g:vim_json_syntax_conceal = 0
 
 " ALE
 let g:ale_set_loclist = 0
-let g:ale_lint_delay = 1000
+let g:ale_lint_delay = 10
 let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_virtualtext_prefix = '[%linter%]% code%: '
 let g:ale_echo_msg_format = '[%linter%]% code%: %s'
 let g:ale_sign_error = '!'
